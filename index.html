@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus ERP - Module Tutorials</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- Bootstrap JS (for tooltips) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        /* Animated Gradient Background */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            background-size: 400% 400%;
+            animation: gradientBG 8s ease infinite;
+            padding: 15px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Product Title & Description */
+        .header-container {
+            max-width: 800px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .header-container:hover {
+            transform: scale(1.02);
+        }
+
+        .product-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-description {
+            font-size: 1rem;
+            color: #f8f9fa;
+            margin-top: 8px;
+            line-height: 1.5;
+        }
+
+        /* Module Grid */
+        .module-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .module-icon {
+            font-size: 2rem;
+            color: #f8f9fa;
+        }
+
+        .module-title {
+            font-size: 0.9rem;
+            color: #fff;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        /* Mobile Responsive Adjustments */
+        @media (max-width: 768px) {
+            .module-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 8px;
+                max-width: 100%;
+            }
+            .module-card {
+                padding: 10px;
+            }
+            .module-icon {
+                font-size: 1.5rem;
+            }
+            .module-title {
+                font-size: 0.8rem;
+            }
+            .product-title {
+                font-size: 1.8rem;
+            }
+            .product-description {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Product Name & Description -->
+    <div class="header-container">
+        <h1 class="product-title">Campus ERP</h1>
+        <p class="product-description">
+            Campus Cloud management software that automates the workflow functions of any institution across the globe, 
+            improving operational efficiency and reducing overall costs.
+        </p>
+    </div>
+
+    <!-- Module Grid -->
+    <div class="module-container">
+        <script>
+            const modules = [
+                { name: "Exam", icon: "bi-journal-text", id: "exam" },
+                { name: "Finance", icon: "bi-wallet", id: "finance" },
+                { name: "Admission", icon: "bi-person-add", id: "admission" },
+                { name: "Attendance", icon: "bi-calendar-check", id: "attendance" },
+                { name: "Time Table", icon: "bi-clock", id: "timetable" },
+                { name: "Library", icon: "bi-book", id: "library" },
+                { name: "Hostel", icon: "bi-house", id: "hostel" },
+                { name: "Transport", icon: "bi-truck", id: "transport" },
+                { name: "HR", icon: "bi-people", id: "hr" },
+                { name: "Student Info", icon: "bi-person", id: "studentinfo" },
+                { name: "Staff", icon: "bi-person-badge", id: "staff" },
+                { name: "Communication", icon: "bi-chat-dots", id: "communication" },
+                { name: "Reports", icon: "bi-bar-chart", id: "reports" },
+                { name: "Inventory", icon: "bi-box-seam", id: "inventory" },
+                { name: "ID Card", icon: "bi-credit-card", id: "idcard" },
+                { name: "Events", icon: "bi-calendar-event", id: "events" },
+                { name: "Alumni", icon: "bi-award", id: "alumni" },
+                { name: "Feedback", icon: "bi-chat-square-quote", id: "feedback" }
+            ];
+
+            modules.forEach(module => {
+                document.write(`
+                    <div class="module-card" onclick="openVideo('${module.id}')">
+                        <i class="bi ${module.icon} module-icon"></i>
+                        <p class="module-title">${module.name}</p>
+                    </div>
+                `);
+            });
+        </script>
+    </div>
+
+    <script>
+        function openVideo(module) {
+            window.location.href = "video.html?module=" + module;
+        }
+    </script>
+
+</body>
+</html>
