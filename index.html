@@ -20,7 +20,7 @@
     max-width: 200px; /* Adjust size as needed */
     height: auto;
 }
-        body {
+        /* body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(135deg, #667eea, #764ba2);
             padding: 15px;
@@ -30,8 +30,19 @@
             align-items: center;
             justify-content: flex-start;
             text-align: center;
-        }
-
+        } */
+        body {
+    font-family: 'Poppins', sans-serif;
+    background: url('school1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    padding: 15px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
         /* Header Styling */
         .header-container {
             max-width: 800px;
@@ -67,7 +78,7 @@
 
         /* Module Cards */
         .module-card {
-            background: rgba(255, 255, 255, 0.15);
+            background-color:#C76D38; /* Darker blue on hover */
             border-radius: 12px;
             padding: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -82,7 +93,7 @@
         }
 
         .module-card:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background-color:#C76D38; /* Darker blue on hover */
             transform: scale(1.05);
         }
 
@@ -169,7 +180,7 @@
             { id: "studentinfo", name: "Student Info", icon: "bi-person", definition: "Maintain student records and personal details." },
             { id: "staff", name: "Staff Details", icon: "bi-person-badge", definition: "Keep track of teacher and staff information." },
             { id: "communication", name: "Communication", icon: "bi-chat-dots", definition: "Send notifications, messages, and alerts." },
-            { id: "reports", name: "Reports & Analytics", icon: "bi-bar-chart", definition: "Generate reports and insights for analysis." },
+            { id: "reports", name: "Reports", icon: "bi-bar-chart", definition: "Generate reports and insights for analysis." },
             { id: "inventory", name: "Inventory Management", icon: "bi-box-seam", definition: "Monitor school supplies and stock levels." },
             { id: "idcard", name: "ID Card Generation", icon: "bi-credit-card", definition: "Create and print student/staff ID cards." },
             { id: "events", name: "Event Management", icon: "bi-calendar-event", definition: "Plan and organize school events and activities." },
