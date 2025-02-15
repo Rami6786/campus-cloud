@@ -147,7 +147,8 @@
     <!-- Module Grid -->
     <div class="module-container">
         <script>
-              document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Bootstrap Tooltips
+        document.addEventListener("DOMContentLoaded", function () {
             var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
                 return new bootstrap.Tooltip(tooltipTriggerEl);
@@ -176,13 +177,13 @@
             { id: "feedback", name: "Feedback System", icon: "bi-chat-square-quote", definition: "Collect and analyze feedback from stakeholders." }
         ];
 
-        // Generate module cards
+        // Generate module cards with bold module names in tooltips and titles
         modules.forEach(module => {
             document.write(`
-                <div class="module-card" onclick="openVideo('${module.id}')" data-bs-toggle="tooltip" title="${module.definition}">
+                <div class="module-card" onclick="openVideo('${module.id}')" data-bs-toggle="tooltip" data-bs-html="true" title="${module.definition}">
                     <div class="icon-container">
                         <i class="bi ${module.icon} module-icon"></i>
-                        <p class="module-title">${module.name}</p>
+                        <p class="module-title"><b>${module.name}</b></p>
                     </div>
                 </div>
             `);
