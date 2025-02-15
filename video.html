@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Video</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .back-btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .back-btn:hover {
+            background: #c0392b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="video-container">
+        <h2 id="moduleTitle">Loading...</h2>
+        <iframe id="videoFrame" class="video-frame" src="" frameborder="0" allowfullscreen></iframe>
+        <br>
+        <button class="back-btn" onclick="goBack()">Back to Modules</button>
+    </div>
+
+    <script>
+        // Define video links for each module
+        const moduleVideos = {
+            "exam": "https://uc-tutorial.s3.ap-south-1.amazonaws.com/videos/AcademicYear%3AAssignAcademicyear/70/assign%20academic%20year.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIAREXRG2WCN37FSHL7%2F20250215%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250215T085116Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEBkaCmFwLXNvdXRoLTEiRzBFAiEA9gQFmj7KVjKdTX1NrjupV4HjcXyIFzBWtUlkd%2B75J3sCIGa60Qj9A0nxpheKHh2i1QULJfjiI2ryrjWoEZ5DkjJgKoEDCEIQAxoMMDc4ODg5MDE0NjYwIgwYrXO9I%2BSN66ThrGMq3gLsCwlPKINjmTFBPMZ76I5NeH15614w5P%2FC7jBZhtOqeYBfmqlTQu3OnpY8l7y56OXBXiaTV95x9ia252BTu6jTcxrCVA28OUhMw1ofn0kcB9MFYVg2tWPxM0GGykJ%2BokZZ6uWgqavg5LCY2uxKVI7RAK2ttkr4pdLibQ0llJhkHr7DFME0DrICGLABLpquuMLIvG0arJhJxJVjg%2FZKh4lq9BULDN8wz2VSDmBCiA%2Blp3b3RvcD7JPKPbX%2F9y%2BvQBeBX934%2Ffy4BZlUwwX%2BqqIvc8OZlTLp4ZNjIjG3ccDLEJ2frwPx1zBLK2tDP8hp4jkaQydXs4Q%2B%2FYhunZRDrS2RTB0KqqzA%2BSYL%2F8GF%2B%2FLEdhRVPRBVHdQy3nCsqCfxmW1hJlIsv4NZfctYim7nT5kF6JVv4wKBozXvUt9X0n3anfo%2FxeR3rKivond7UlSEspL05LXveBs%2Bcozj5ApTIDDhp8G9BjqzAriCxMrcPn14tbr29WHw79AgIJ1tstnBPlpwpZ05Ui05%2FIPWzuzhgFGaZqSfYUgAdSvCVE3s6x%2Bmf5rNDNpmRNcTkbJ6oFOqd3fjiTCIuNnvVb1KIo0vAS1p2sRsPy4JOWsQtkESww%2BH5SFSxcrwEqmK2NaQ%2FKiDmZYSznoKqeDmflxUzkfYshqUx6lmKV%2Bc3s%2B4Sch4les7jsLfSU3f04KnFzbt2U87SNEmk7T12Bja%2F9ohzpKZHN6%2FNi4I0HzOuVgUTehc5e4jqUsKqevXeSbLYUvq19GxH0A6jYgvU5fqwFpUyZiENLIJ%2BaFQoHMpdM6q3NGxBDHCHf739a32wNZd30l6usB3CINPpc4bBCRLm2Imqu26zFVLZpCIOpyl4CvN4wm3H%2FDPLlKAvEa3nlalll0%3D&X-Amz-Signature=a7fdb24d45c70a29f26a0395fb226a16a86bd08295ef4d72800d7e1bd20ebd59&X-Amz-SignedHeaders=host&response-content-disposition=inline",
+            "finance": "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+            "admission": "https://www.youtube.com/embed/LXb3EKWsInQ",
+            "attendance": "https://www.youtube.com/embed/NpEaa2P7qZI",
+            "timetable": "https://www.youtube.com/embed/tgbNymZ7vqY",
+            "library": "https://www.youtube.com/embed/Z9WUdJGKdA4",
+            "hostel": "https://www.youtube.com/embed/vjV8bbWz4xo",
+            "transport": "https://www.youtube.com/embed/PRXvuuJA6V8",
+            "hr": "https://www.youtube.com/embed/8ZcmTl_1ER8",
+            "studentinfo": "https://www.youtube.com/embed/ERahqQLRFeo",
+            "staff": "https://www.youtube.com/embed/A77kZVWb2Rs",
+            "communication": "https://www.youtube.com/embed/rdBfVyfKbBM",
+            "reports": "https://www.youtube.com/embed/5Uon43GB1bs",
+            "inventory": "https://www.youtube.com/embed/UH6LhY1Xvks",
+            "idcard": "https://www.youtube.com/embed/JFVRWCOgwyw",
+            "events": "https://www.youtube.com/embed/dX7B6D7oCMo",
+            "alumni": "https://www.youtube.com/embed/qgCdguKce2o",
+            "feedback": "https://www.youtube.com/embed/S5vJtq6OmaY"
+        };
+
+        // Get module ID from URL
+        const moduleId = new URLSearchParams(window.location.search).get("module");
+
+        // Set module title
+        document.getElementById("moduleTitle").innerText = moduleId.replace(/-/g, " ");
+
+        // Set video source (fallback if no video is available)
+        document.getElementById("videoFrame").src = moduleVideos[moduleId] || "https://www.youtube.com/embed/dQw4w9WgXcQ";
+
+        // Back button function
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
